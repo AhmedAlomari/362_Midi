@@ -4,28 +4,28 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/chariots-of-fire.c \
 ../src/init.c \
 ../src/main.c \
 ../src/midi.c \
 ../src/syscalls.c \
-../src/system_stm32f0xx.c \
-../src/tetris.c 
+../src/system_stm32f0xx.c 
 
 OBJS += \
+./src/chariots-of-fire.o \
 ./src/init.o \
 ./src/main.o \
 ./src/midi.o \
 ./src/syscalls.o \
-./src/system_stm32f0xx.o \
-./src/tetris.o 
+./src/system_stm32f0xx.o 
 
 C_DEPS += \
+./src/chariots-of-fire.d \
 ./src/init.d \
 ./src/main.d \
 ./src/midi.d \
 ./src/syscalls.d \
-./src/system_stm32f0xx.d \
-./src/tetris.d 
+./src/system_stm32f0xx.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

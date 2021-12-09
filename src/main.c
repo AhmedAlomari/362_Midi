@@ -47,6 +47,7 @@ void TIM2_IRQHandler(void)
     midi_play();
 }
 
+
 void TIM6_DAC_IRQHandler(void){
     TIM6->SR &= ~TIM_SR_UIF;
     int sample = 0;
@@ -59,6 +60,7 @@ void TIM6_DAC_IRQHandler(void){
     sample = (sample >> 16) + 2048;
     DAC->DHR12R1 = sample;
 }
+
 
 void note_on(int time, int chan, int key, int velo)
 {
