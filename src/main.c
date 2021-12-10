@@ -3,7 +3,7 @@
 #include <math.h>   // for MA_PI
 #include "midi.h"
 #include "init.h"
-#include "step-array.h"
+#include "steps.h"
 
 #define N 1000
 #define RATE 20000

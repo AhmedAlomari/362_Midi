@@ -28,13 +28,13 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: DACwork.elf
+all: 362_Midi.elf
 
 # Tool invocations
-DACwork.elf: $(OBJS) $(USER_OBJS) C:\Users\Ahmed\Downloads\DACwork/LinkerScript.ld
+362_Midi.elf: $(OBJS) $(USER_OBJS) C:\Users\Ahmed\workspace\362_Midi/LinkerScript.ld
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU GCC Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -T"C:/Users/Ahmed/Downloads/DACwork/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "DACwork.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -T"C:/Users/Ahmed/workspace/362_Midi/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "362_Midi.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -46,8 +46,8 @@ clean:
 
 post-build:
 	-@echo 'Generating binary and Printing size information:'
-	arm-none-eabi-objcopy -O binary "DACwork.elf" "DACwork.bin"
-	arm-none-eabi-size "DACwork.elf"
+	arm-none-eabi-objcopy -O binary "362_Midi.elf" "362_Midi.bin"
+	arm-none-eabi-size "362_Midi.elf"
 	-@echo ' '
 
 .PHONY: all clean dependents

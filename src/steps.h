@@ -1,7 +1,5 @@
 #ifndef __STEP_ARRAY_H__
 #define __STEP_ARRAY_H__
-#define N 1000
-#define RATE 20000
 
 // N powers of the the 12th-root of 2.
 #define STEP1 1.05946309436
@@ -13,6 +11,10 @@
 #define STEP7 (STEP6*STEP1)
 #define STEP8 (STEP7*STEP1)
 #define STEP9 (STEP8*STEP1)
+
+#define N 1000
+#define RATE 20000
+
 
 // Macros for computing the fixed point representation of
 // the step size used for traversing a wavetable of size N

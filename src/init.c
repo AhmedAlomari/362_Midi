@@ -15,7 +15,7 @@ void init_DAC(void){
     DAC->CR &= ~DAC_CR_EN1;
     DAC->CR &= ~DAC_CR_BOFF1;
     DAC->CR |= DAC_CR_TEN1;
-    DAC->CR &= ~(3<<5);
+    DAC->CR &= ~(DAC_CR_TSEL1);
     DAC->CR |= DAC_CR_EN1;
 }
 
