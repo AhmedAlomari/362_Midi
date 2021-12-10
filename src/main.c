@@ -50,8 +50,11 @@ void TIM2_IRQHandler(void)
 
 void TIM6_DAC_IRQHandler(void){
     TIM6->SR &= ~TIM_SR_UIF;
+    DAC->SWTRIGR = 1;
     int sample = 0;
     for(int i=0; i < sizeof voice / sizeof voice[0]; i++) {
+    	if (voice[i].step == 0)
+    		break;
         sample += (wavetable[voice[i].offset>>16] * voice[i].volume) /*<< 4*/;
         voice[i].offset += voice[i].step;
         if ((voice[i].offset >> 16) >= sizeof wavetable / sizeof wavetable[0])
@@ -69,6 +72,7 @@ void note_on(int time, int chan, int key, int velo)
       // configure this voice to have the right step and volume
         if(velo == 0){
             note_off(time, chan, key, velo);
+            return;
         }
         else{
             voice[i].step = step[key];

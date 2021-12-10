@@ -15,14 +15,14 @@ void init_DAC(void){
     DAC->CR &= ~DAC_CR_EN1;
     DAC->CR &= ~DAC_CR_BOFF1;
     DAC->CR |= DAC_CR_TEN1;
-    DAC->CR &= ~(DAC_CR_TSEL1);
+    DAC->CR |= (7<<3);
     DAC->CR |= DAC_CR_EN1;
 }
 
 void init_TIM6(void){
     RCC->APB1ENR |= RCC_APB1ENR_TIM6EN;
-    TIM6->PSC = 48 - 1;
-    TIM6->ARR = (1000000/RATE) - 1;
+    TIM6->PSC = 0;//48 - 1;
+    TIM6->ARR = (48000000/RATE) - 1;
     TIM6->DIER |= TIM_DIER_UIE;
     TIM6->CR1 |= TIM_CR1_CEN;
     //TIM6->CR1 &= ~(TIM_CR1_CEN);
